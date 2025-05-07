@@ -1,6 +1,7 @@
 <?php
+use App\Helpers\TokenHelper; // Tambahkan ini
 require_once __DIR__ . '/../config/database.php';
-
+require_once __DIR__ . '/../helpers/TokenHelper.php';
 class AuthController {
     public static function register() {
         $db = (new Database())->connect();
@@ -73,7 +74,16 @@ class AuthController {
 
         if ($user && password_verify($input['password'], $user['password'])) {
             unset($user['password']);
-            echo json_encode(["message" => "Login berhasil!", "user" => $user]);
+            // Setelah cek email & password valid:
+            $token = TokenHelper::generateToken([
+                'id' => $user['id'],
+                'email' => $user['email'],
+                'role' => $user['role']
+            ]);
+            echo json_encode([
+                'status' => 'success',
+                'token' => $token
+            ]);
         } else if (!$user) {
             http_response_code(401);
             echo json_encode(["message" => "Akun dengan email ini tidak ditemukan. Pastikan Anda memasukkan alamat email yang benar atau daftar terlebih dahulu."]);

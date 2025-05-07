@@ -1,0 +1,18 @@
+{
+    "name": "farell_kurniawan/kelas-kita-be",
+    "autoload": {
+        "psr-4": {
+            "FarellKurniawan\\KelasKitaBe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "FK17108Farell",
+            "email": "148215945+FK17108Farell@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.11",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
