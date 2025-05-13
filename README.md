@@ -1,8 +1,12 @@
+# 📚 KelasKita Backend API
 
-# Kelas Kita — Backend API (PHP + MySQL)
+Sistem backend untuk platform pembelajaran **KelasKita**, yang menyediakan fitur:
+- Kelas daring (membuat kelas, bergabung, tugas, pengumpulan, penilaian)
+- Bootcamp (materi/video/soal, progress tracking)
+- Forum komunitas (diskusi & komentar)
+- Manajemen user berbasis role (Admin, Guru, Siswa)
 
-Proyek backend untuk sistem pembelajaran daring "Kelas Kita".  
-Dibangun dengan PHP native dan MySQL (XAMPP), dengan arsitektur modular dan endpoint berbasis REST API.
+Dibangun menggunakan **PHP Native + MySQL**, tanpa framework eksternal.
 
 ---
 
@@ -10,24 +14,65 @@ Dibangun dengan PHP native dan MySQL (XAMPP), dengan arsitektur modular dan endp
 - PHP Native (tanpa framework)
 - MySQL (phpMyAdmin via XAMPP)
 - JSON Web Token (JWT) untuk autentikasi
+- Postman untuk testing fungsionalitas
 - Role-based access: `admin`, `teacher`, `student`
 
 ---
+
+## 🚀 Setup
+
+### 1. Clone repository
+```bash
+git clone https://github.com/username/kelas-kita-backend.git
+cd kelaskita-backend
+```
+
+### 2. Buat database
+- Import file SQL yang telah disediakan: `kelaskita.sql`
+- Pastikan database MySQL lokal aktif (bisa menggunakan XAMPP atau sejenis)
+
+### 3. Konfigurasi environment
+
+Buat file `.env` di root folder, atau duplikat dari `.env.example`
+
+```env
+DB_HOST=localhost
+DB_NAME=kelaskita
+DB_USER=root
+DB_PASS=
+BASE_URL=http://localhost/kelaskita-backend
+```
+
+### 4. Jalankan server
+
+Bisa dijalankan melalui local PHP built-in server:
+
+```bash
+php -S localhost:8000
+```
+
+Atau taruh di folder `htdocs` jika menggunakan XAMPP:
+
+```bash
+http://localhost/kelas-kita-backend
+```
 
 ## 📁 Struktur Folder
 
 ```
 kelas-kita-be/
 ├── app/
-│   ├── config/              # Koneksi database
-│   ├── controllers/         # Logic tiap fitur utama
-│   ├── helpers/             # JWT, role, json response
-│   ├── middleware/          # JWT middleware
-│   └── routes/              # Routing utama
-├── public/                  # Entry point index.php
-├── sql/                     # File init database
-├── .htaccess                # Redirect semua ke index.php
+│   ├── config/                        # Koneksi database
+│   ├── controllers/                   # Logic tiap fitur utama
+│   ├── helpers/                       # JWT, role, json response
+│   ├── middleware/                    # JWT middleware
+│   └── routes/                        # Routing utama
+├── public/                            # Entry point index.php
+├── sql/                               # File init database
+├── .htaccess                          # Redirect semua ke index.php
 ├── .gitignore
+├── .env.example                       # Contoh konfigurasi environment
+├── KelasKita.postman_collection.json  # Postman Collection
 └── README.md
 ```
 
@@ -36,7 +81,7 @@ kelas-kita-be/
 ## 🚀 Cara Menjalankan (XAMPP)
 
 1. Clone repo ini ke folder `htdocs`
-2. Import file `sql/init_schema.sql` ke phpMyAdmin
+2. Import file `sql/kelaskita.sql` ke phpMyAdmin
 3. Jalankan Apache & MySQL
 4. Akses dari browser:
    ```
@@ -117,5 +162,4 @@ kelas-kita-be/
 ---
 
 ## ✨ Kontributor
-- Backend Developer: [Nama Kamu]
-- Frontend: [Tim FE]
+- Backend Developer: Farell Kurniawan
