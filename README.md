@@ -1,4 +1,4 @@
-# 📚 KelasKita Backend API
+# 📚 Kelas Kita Backend API
 
 Sistem backend untuk platform pembelajaran **KelasKita**, yang menyediakan fitur:
 - Kelas daring (membuat kelas, bergabung, tugas, pengumpulan, penilaian)
